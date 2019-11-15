@@ -28,6 +28,7 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
+    if (message.author.bot) return;
     if (message.content === '!quiz') {
         message.channel.send(`@everyone Current Event Quiz Released`);
         message.channel.send(`DM your answer to me, CurrentEventQuizzesLord. In the DM, enter the question number you want to answer, followed by EXACTLY 1 space, followed by the answer. Make sure the answer is in all lowercase.`);
