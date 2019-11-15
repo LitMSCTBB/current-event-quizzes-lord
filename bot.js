@@ -5,7 +5,25 @@ const auth = require('./auth.json');
 var questions = ['test1', 'test2', 'test3'];
 var answers = ['yes', 'ooo', 'bet'];
 
+var points = {};
 
+function sortJsObject(obj) {
+    var keys = [];
+    for (var key in obj) {
+        keys[keys.length] = key;
+    }
+
+    var values = [];
+    for (var i = 0; i < keys.length; i++) {
+        values[values.length] = obj[keys[i]];
+    }
+
+    var sortedValues = values.sort(sortNumber);
+    return sortedValues;
+}
+function sortNumber(a, b) {
+    return a - b;
+}
 
 
 client.on('ready', () => {
@@ -43,11 +61,24 @@ client.on('message', message => {
         console.log(qnum);
         console.log(ans);
         if (ans === answers[qnum - 1]) {
-            message.channel.send('yes, that is correct');
+            message.channel.send(`Yes, that is correct!`);
+            points[message.author] += 1;
+            points = sortJsObject(points);
         } else {
-            message.channel.send('Either that is wrong, or you have entered bad input.');
+            message.channel.send(`Either that is wrong, or you have entered bad input.`);
         }
     }
+    if (message.content === '!leaderboard') {
+        for (var user in points) {
+            message.channel.send(user + `: ` + points[user])
+        }
+    }
+    if (message.content === '!clearleaderboard') {
+        for (var user in points) {
+            points[user] = 0;
+        }
+    }
+
 });
 
 
