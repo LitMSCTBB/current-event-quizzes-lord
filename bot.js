@@ -43,13 +43,9 @@ client.on('message', message => {
         console.log(qnum);
         console.log(ans);
         if (ans === answers[qnum - 1]) {
-            if (!lastMessage.author.bot) {
-                message.channel.send('yes, that is correct');
-            }
+            message.channel.send('yes, that is correct');
         } else {
-            if (!lastMessage.author.bot) {
-                message.channel.send('Either that is wrong, or you have entered bad input.');
-            }
+            message.channel.send('Either that is wrong, or you have entered bad input.');
         }
     }
 });
