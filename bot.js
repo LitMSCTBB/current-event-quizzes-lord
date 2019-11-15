@@ -63,7 +63,6 @@ client.on('message', message => {
         if (ans === answers[qnum - 1]) {
             message.channel.send(`Yes, that is correct!`);
             points[message.author] += 1;
-            points = sortJsObject(points);
         } else {
             message.channel.send(`Either that is wrong, or you have entered bad input.`);
         }
@@ -72,6 +71,9 @@ client.on('message', message => {
         for (var user in points) {
             message.channel.send(user + `: ` + points[user])
         }
+    }
+    if (message.content === '!mypoints') {
+        message.channel.send(user + `: ` + points[user])
     }
     if (message.content === '!clearleaderboard') {
         for (var user in points) {
