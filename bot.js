@@ -6,8 +6,7 @@ var questions = ['test1', 'test2', 'test3'];
 var answers = ['yes', 'ooo', 'bet'];
 
 var points = {};
-bot.guilds.array();
-.forEach((guild) => {
+bot.guilds.array().forEach((guild) => {
     let qbers = guild.members.array();
 });
 for (var qb in qbers) {
