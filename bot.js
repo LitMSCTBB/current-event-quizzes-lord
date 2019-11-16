@@ -6,6 +6,13 @@ var questions = ['test1', 'test2', 'test3'];
 var answers = ['yes', 'ooo', 'bet'];
 
 var points = {};
+bot.guilds.array();
+.forEach((guild) => {
+    let qbers = guild.members.array();
+});
+for (var qb in qbers) {
+    points[qb] = 0;
+}
 
 function sortJsObject(obj) {
     var keys = [];
@@ -24,25 +31,6 @@ function sortJsObject(obj) {
 function sortNumber(a, b) {
     return a - b;
 }
-
-
-client.on('ready', () => {
-    console.log('ready!');
-    client.guilds.forEach((guild) => {
-        const channel = guild.channels.find(ch => ch.name === 'current-event-quizzes');
-        /*while (true) {
-            var date = new Date()
-            if (date.getHours() === 18 && date.getMinutes() === 0) {
-                channel.send(`@everyone Current Event Quiz Released`);
-                channel.send(`DM your answer to me, CurrentEventQuizzesLord. In the DM, enter the question number you want to answer, followed by EXACTLY 1 space, followed by the answer. Make sure the answer is in all lowercase.`);
-                for (i = 0; i < array.length; i++) {
-                    channel.send((i + 1) + ": " + questions[i]);
-                }
-            }
-        }*/
-
-    });
-});
 
 
 client.on('message', message => {
@@ -73,7 +61,7 @@ client.on('message', message => {
         }
     }
     if (message.content === '!mypoints') {
-        message.channel.send(user + `: ` + points[user])
+        message.channel.send(message.author + `: ` + points[message.author])
     }
     if (message.content === '!clearleaderboard') {
         for (var user in points) {
