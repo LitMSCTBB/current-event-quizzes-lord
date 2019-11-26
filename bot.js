@@ -10,7 +10,7 @@ var qbers = [];
 var guild;
 
 client.on('ready', () => {
-    console.log('I am ready!');
+    console.log('uwu bet boi i b ready!');
     guild = client.guilds.get('634574175238881280');
     guild.members.forEach(member => qbers.push(member.user.username));
 });
