@@ -5,7 +5,6 @@ const auth = require('./auth.json');
 const embed = {
     "title": "Command List",
     "color": 100000,
-    "timestamp": "2019-11-30T20:22:42.695Z",
     "footer": {
         "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
         "text": "TH Rogers Quiz Bowl CurrentEventQuizzesLord"
