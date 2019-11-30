@@ -2,6 +2,39 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const auth = require('./auth.json');
 
+const embed = {
+    "title": "Command List",
+    "color": 100000,
+    "timestamp": "2019-11-30T20:22:42.695Z",
+    "footer": {
+        "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
+        "text": "TH Rogers Quiz Bowl CurrentEventQuizzesLord"
+    },
+    "author": {
+        "name": "CurrentEventQuizzesLord",
+        "url": "https://discordapp.com",
+        "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
+    },
+    "fields": [
+        {
+            "name": "!help",
+            "value": "uh duh"
+        },
+        {
+            "name": "!leaderboard",
+            "value": "Get leaderboard link"
+        },
+        {
+            "name": "!score <user>",
+            "value": "Retrieve the score of <user>"
+        },
+        {
+            "name": "!setscore <user> <newscore>",
+            "value": "Sets the score of <user> to <newscore>"
+        }
+    ]
+};
+
 var questions = ['test1', 'test2', 'test3'];
 var answers = ['yes', 'ooo', 'bet'];
 
@@ -35,21 +68,18 @@ client.on('message', message => {
         }
     }
     if (message.content === '!help') {
-
+        message.channel.send({ embed });
     }
     if (message.content === '!leaderboard') {
         
     }
     if (message.content === '!clearleaderboard') {
         if (message.author.id === '497237135317925898') {
-            
-            }
             message.channel.send('Leaderboard cleared!');
         } else {
             message.channel.send('You are not authorized to do that!');
         }
     }
-
 });
 
 
