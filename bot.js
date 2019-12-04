@@ -76,13 +76,13 @@ client.on('message', message => {
         }
         if (command.startsWith('answer ')) {
             if (message.channel.type === 'dm') {
-                var qnum = parseInt(message.content.substr(7, 8));
-                var ans = message.content.substr(9);
-                
+                var qnum = parseInt(command.substr(7, 8));
+                var ans = command.substr(9);
                 if (ans === answers[qnum - 1]) {
                     message.channel.send(`Yes, that is correct! You will receive a point for that.`);
                 } else {
                     message.channel.send(`Either that is wrong, or you have entered bad input.`);
+                    
                 }
             }
         }
