@@ -76,8 +76,8 @@ client.on('message', message => {
         }
         if (command.startsWith('answer ')) {
             if (message.channel.type === 'dm') {
-                var qnum = parseInt(message.content.substr(8, 9));
-                var ans = message.content.substr(10);
+                var qnum = parseInt(message.content.substr(7, 8));
+                var ans = message.content.substr(9);
                 
                 if (ans === answers[qnum - 1]) {
                     message.channel.send(`Yes, that is correct! You will receive a point for that.`);
