@@ -24,6 +24,10 @@ const embed = {
             "value": "Retrieve the quiz"
         },
         {
+            "name": "cqlord answer",
+            "value": "Submit an answer (only works in a DM)"
+        },
+        {
             "name": "cqlord leaderboard",
             "value": "Get leaderboard link"
         },
@@ -45,14 +49,11 @@ const embed = {
 var questions = ['test1', 'test2', 'test3'];
 var answers = ['yes', 'ooo', 'bet'];
 
-var points = {};
-var qbers = [];
 var guild;
 
 client.on('ready', () => {
     console.log('uwu bet boi i b ready aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb!');
     guild = client.guilds.get('634574175238881280');
-    guild.members.forEach(member => qbers.push(member.user.username));
     client.user.setActivity("cqlord help");
 });
 
@@ -68,7 +69,7 @@ client.on('message', message => {
         }
         if (command === 'quiz') {
             message.channel.send(`Quiz here! Type !help for a list of commands that I handle.`);
-            message.channel.send(`For the quiz, DM your answer to me, CurrentEventQuizzesLord. In the DM, enter "answer", followed by EXACTLY 1 space, followed by the question number you want to answer, followed by EXACTLY 1 space, followed by the answer. Make sure the answer is in all lowercase.`);
+            message.channel.send(`For the quiz, DM your answer to me, CurrentEventQuizzesLord. In the DM, (all in one message) "cqlord answer", followed by EXACTLY 1 space, followed by the question number you want to answer, followed by EXACTLY 1 space, followed by the answer. Make sure the answer is in all lowercase.`);
             for (i = 0; i < questions.length; i++) {
                 message.channel.send((i + 1) + ': ' + questions[i]);
             }
