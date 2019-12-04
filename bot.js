@@ -74,9 +74,9 @@ client.on('message', message => {
                 message.channel.send((i + 1) + ': ' + questions[i]);
             }
         }
-        if (command.substr(0, 6) === 'answer') {
+        if (command.startsWith('answer ')) {
             if (message.channel.type === 'dm') {
-                var qnum = parseInt(message.content.substr(7, 8));
+                var qnum = parseInt(message.content.substr(8, 9));
                 var ans = message.content.substr(2);
                 if (ans === answers[qnum - 1]) {
                     message.channel.send(`Yes, that is correct! You will receive a point for that.`);
@@ -85,10 +85,10 @@ client.on('message', message => {
                 }
             }
         }
-        if (command.substr(0, 5) === 'score') {
+        if (command.startsWith('score ')) {
         
         }
-        if (command.substr(0, 8) === 'setscore') {
+        if (command.startsWith('setscore ')) {
         
         }
         if (command === 'leaderboard') {
