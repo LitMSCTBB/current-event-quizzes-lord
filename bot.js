@@ -74,7 +74,7 @@ client.on('message', message => {
                 message.channel.send((i + 1) + ': ' + questions[i]);
             }
         }
-        if (command === 'answer') {
+        if (command.substr(0, 6) === 'answer') {
             if (message.channel.type === 'dm') {
                 var qnum = parseInt(message.content.substr(7, 8));
                 var ans = message.content.substr(2);
