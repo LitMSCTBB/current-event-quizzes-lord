@@ -59,27 +59,29 @@ client.on('ready', () => {
 
 client.on('message', message => {
     if (message.author.bot) return;
-    if (message.channel.type === 'dm') {
-         var qnum = parseInt(message.content.substr(0, 1));
-         var ans = message.content.substr(2);
-         if (ans === answers[qnum - 1]) {
-             message.channel.send(`Yes, that is correct! You will receive a point for that.`);
-         } else {
-             message.channel.send(`Either that is wrong, or you have entered bad input.`);
-         }
-    }
+    
     if (message.content.substr(0,7) === 'cqlord '); {
         var command = message.content.substr(7);
-        
         
         if (command === 'help') {
             message.channel.send({ embed });
         }
         if (command === 'quiz') {
             message.channel.send(`Quiz here! Type !help for a list of commands that I handle.`);
-            message.channel.send(`For the quiz, DM your answer to me, CurrentEventQuizzesLord. In the DM, enter the question number you want to answer, followed by EXACTLY 1 space, followed by the answer. Make sure the answer is in all lowercase.`);
+            message.channel.send(`For the quiz, DM your answer to me, CurrentEventQuizzesLord. In the DM, enter "answer", followed by EXACTLY 1 space, followed by the question number you want to answer, followed by EXACTLY 1 space, followed by the answer. Make sure the answer is in all lowercase.`);
             for (i = 0; i < questions.length; i++) {
                 message.channel.send((i + 1) + ': ' + questions[i]);
+            }
+        }
+        if (command === 'answer') {
+            if (message.channel.type === 'dm') {
+                var qnum = parseInt(message.content.substr(7, 8));
+                var ans = message.content.substr(2);
+                if (ans === answers[qnum - 1]) {
+                    message.channel.send(`Yes, that is correct! You will receive a point for that.`);
+                } else {
+                    message.channel.send(`Either that is wrong, or you have entered bad input.`);
+                }
             }
         }
         if (command.substr(0, 5) === 'score') {
