@@ -81,7 +81,7 @@ client.on('message', message => {
                 if (ans === answers[qnum - 1]) {
                     message.channel.send(`Yes, that is correct! You will receive a point for that.`);
                 } else {
-                    message.channel.send(`Either that is wrong, or you have entered bad input. Your answer was: ` + ans + ".");
+                    message.channel.send(`Either that is wrong, or you have entered bad input. Your answer was "` + ans + '".');
                     
                 }
             }
