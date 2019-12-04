@@ -58,6 +58,7 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
+    if (message.author.bot) return;
     if (message.channel.type === 'dm') {
          var qnum = parseInt(message.content.substr(0, 1));
          var ans = message.content.substr(2);
@@ -68,7 +69,6 @@ client.on('message', message => {
          }
     }
     if (message.content.substr(0,7) === 'cqlord '); {
-        if (message.author.bot) return;
         var command = message.content.substr(7);
         
         
