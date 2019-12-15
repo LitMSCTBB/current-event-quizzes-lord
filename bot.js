@@ -2,6 +2,19 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const auth = require('./auth.json');
 
+const firebaseConfig = {
+    apiKey: "AIzaSyCDzzlKFRQ7nPf6QNn4yA7wRW-qw7RpQFA",
+    authDomain: "currenteventquizzesleaderboard.firebaseapp.com",
+    databaseURL: "https://currenteventquizzesleaderboard.firebaseio.com",
+    projectId: "currenteventquizzesleaderboard",
+    storageBucket: "currenteventquizzesleaderboard.appspot.com",
+    messagingSenderId: "155229259135",
+    appId: "1:155229259135:web:70cd89daf39c61f2c1464a",
+    measurementId: "G-WSPKY8G03K"
+};
+firebase.initializeApp(config);
+var database = firebase.database();
+
 const embed = {
     "title": "Command List",
     "color": 100000,
