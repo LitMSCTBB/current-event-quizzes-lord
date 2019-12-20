@@ -1,9 +1,13 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const auth = require('./auth.json');
+
 const firebase = require('firebase/app');
 require('firebase/database');
+
 var schedule = require('node-schedule');
+
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyCDzzlKFRQ7nPf6QNn4yA7wRW-qw7RpQFA",
@@ -69,11 +73,12 @@ client.on('ready', () => {
     console.log('uwu bet boi i b ready aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb!');
     guild = client.guilds.get('634574175238881280');
     client.user.setActivity("cqlord help");
+    var j = schedule.scheduleJob({ hour: 21, minute: 54, dayOfWeek: 5 }, function () {
+        client.channels.get('635672167773896725').send('Quiz released @everyone. For the quiz, DM your answer to me, CurrentEventQuizzesLord. In the DM, (all in one message) "cqlord answer", followed by EXACTLY 1 space, followed by the question number you want to answer, followed by EXACTLY 1 space, followed by the answer. Make sure the answer is in all lowercase.');
+    });
 });
 
-var j = schedule.scheduleJob({ hour: 7, minute: 44, dayOfWeek: 5 }, function () {
-    client.channels.get('635672167773896725').send('Quiz released @everyone. For the quiz, DM your answer to me, CurrentEventQuizzesLord. In the DM, (all in one message) "cqlord answer", followed by EXACTLY 1 space, followed by the question number you want to answer, followed by EXACTLY 1 space, followed by the answer. Make sure the answer is in all lowercase.');
-});
+
 
 client.on('message', message => {
     if (message.author.bot) return;
