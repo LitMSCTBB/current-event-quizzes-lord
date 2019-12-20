@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const auth = require('./auth.json');
+const firebase = require('firebase/app');
+require('firebase/database');
+var schedule = require('node-schedule');
 
 const firebaseConfig = {
     apiKey: "AIzaSyCDzzlKFRQ7nPf6QNn4yA7wRW-qw7RpQFA",
@@ -12,7 +15,7 @@ const firebaseConfig = {
     appId: "1:155229259135:web:70cd89daf39c61f2c1464a",
     measurementId: "G-WSPKY8G03K"
 };
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
 const embed = {
@@ -62,14 +65,15 @@ const embed = {
 var questions = ['test1', 'test2', 'test3'];
 var answers = ['yes', 'ooo', 'bet'];
 
-var guild;
-
 client.on('ready', () => {
     console.log('uwu bet boi i b ready aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb!');
     guild = client.guilds.get('634574175238881280');
     client.user.setActivity("cqlord help");
 });
 
+var j = schedule.scheduleJob({ hour: 7, minute: 44, dayOfWeek: 5 }, function () {
+    client.channels.get('635672167773896725').send('Quiz released @everyone. For the quiz, DM your answer to me, CurrentEventQuizzesLord. In the DM, (all in one message) "cqlord answer", followed by EXACTLY 1 space, followed by the question number you want to answer, followed by EXACTLY 1 space, followed by the answer. Make sure the answer is in all lowercase.');
+});
 
 client.on('message', message => {
     if (message.author.bot) return;
@@ -81,8 +85,7 @@ client.on('message', message => {
             message.channel.send({ embed });
         }
         if (command === 'quiz') {
-            message.channel.send(`Quiz here! Type !help for a list of commands that I handle.`);
-            message.channel.send(`For the quiz, DM your answer to me, CurrentEventQuizzesLord. In the DM, (all in one message) "cqlord answer", followed by EXACTLY 1 space, followed by the question number you want to answer, followed by EXACTLY 1 space, followed by the answer. Make sure the answer is in all lowercase.`);
+            message.channel.send(`Quiz released @everyone. For the quiz, DM your answer to me, CurrentEventQuizzesLord. In the DM, (all in one message) "cqlord answer", followed by EXACTLY 1 space, followed by the question number you want to answer, followed by EXACTLY 1 space, followed by the answer. Make sure the answer is in all lowercase.`);
             for (i = 0; i < questions.length; i++) {
                 message.channel.send((i + 1) + ': ' + questions[i]);
             }
@@ -106,7 +109,7 @@ client.on('message', message => {
         
         }
         if (command === 'leaderboard') {
-        
+            message.channel.send("https://docs.google.com/spreadsheets/d/1xq-avwsqvh4RsndyrUnVHo0dZo4-aFJs4ItNW1I5His/edit#gid=0");
         }
         if (command === 'clearleaderboard') {
             if (message.author.id === '497237135317925898') {
