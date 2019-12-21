@@ -1,14 +1,13 @@
+//discord.js
 const Discord = require('discord.js');
 const client = new Discord.Client();
+
+//token file
 const auth = require('./auth.json');
 
+//firebase
 const firebase = require('firebase/app');
 require('firebase/database');
-
-var schedule = require('node-schedule');
-
-
-
 const firebaseConfig = {
     apiKey: "AIzaSyCDzzlKFRQ7nPf6QNn4yA7wRW-qw7RpQFA",
     authDomain: "currenteventquizzesleaderboard.firebaseapp.com",
@@ -22,6 +21,56 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
+//node-schedule
+const schedule = require('node-schedule');
+
+//Sheets API
+const {google} = require('googleapis');
+const keys = require('./keys.json');
+const client2 = new google.auth.JWT(
+    keys.client_email,
+    null,
+    keys.private_key,
+    ['https://www.googleapis.com/auth/spreadsheets']
+);
+client2.authorize(function (err, tokens) {
+    if (err) {
+        console.log(err);
+        return;
+    } else {
+        console.log('Connected with Sheets API!');
+    }
+});
+//for next time: define more async functions meant for the purposes of the functions for the bot i still need to do, and figure out how to do disjoint ranges
+async function gsrun(cl) {
+    const gsapi = google.sheets({ version: 'v4', auth: cl });
+    const opt = {
+        spreadsheetId: '1xq-avwsqvh4RsndyrUnVHo0dZo4-aFJs4ItNW1I5His',
+        range: 'C2:Z4'
+    };
+    let entries = await gsapi.spreadsheets.values.get(opt);
+    let dataArray = entries.data.values;
+    //make sure there are always the same amount of columns to prevent unwanted undefined things in the sheet
+    dataArray = dataArray.map(function (r) {
+        while (r.length < 2) {
+            r.push('');
+        }
+        return r;
+    });
+
+    dataArray[0].push('3');
+
+    const updateOptions = {
+        spreadsheetId: '1xq-avwsqvh4RsndyrUnVHo0dZo4-aFJs4ItNW1I5His',
+        range: 'C2',
+        valueInputOption: 'USER_ENTERED',
+        resource: { values: dataArray }
+    };
+
+    let res = await gsapi.spreadsheets.values.update(updateOptions);
+};
+
+//help embed
 const embed = {
     "title": "Command List",
     "color": 100000,
@@ -66,6 +115,7 @@ const embed = {
     ]
 };
 
+//questions+answers
 var questions = ['test1', 'test2', 'test3'];
 var answers = ['yes', 'ooo', 'bet'];
 
@@ -73,12 +123,10 @@ client.on('ready', () => {
     console.log('uwu bet boi i b ready aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb!');
     guild = client.guilds.get('634574175238881280');
     client.user.setActivity("cqlord help");
-    var j = schedule.scheduleJob({ hour: 21, minute: 54, dayOfWeek: 5 }, function () {
+    var j = schedule.scheduleJob({ hour: 18, minute: 0, dayOfWeek: 0 }, function () {
         client.channels.get('635672167773896725').send('Quiz released @everyone. For the quiz, DM your answer to me, CurrentEventQuizzesLord. In the DM, (all in one message) "cqlord answer", followed by EXACTLY 1 space, followed by the question number you want to answer, followed by EXACTLY 1 space, followed by the answer. Make sure the answer is in all lowercase.');
     });
 });
-
-
 
 client.on('message', message => {
     if (message.author.bot) return;
@@ -111,7 +159,17 @@ client.on('message', message => {
         
         }
         if (command.startsWith('setscore ')) {
-        
+            if (message.author.id === '497237135317925898') {
+
+
+
+
+
+
+                message.channel.send('Score set!');
+            } else {
+                message.channel.send('You are not authorized to do that!');
+            }
         }
         if (command === 'leaderboard') {
             message.channel.send("https://docs.google.com/spreadsheets/d/1xq-avwsqvh4RsndyrUnVHo0dZo4-aFJs4ItNW1I5His/edit#gid=0");
@@ -131,7 +189,6 @@ client.on('message', message => {
         }
 	}
 });
-
 
 
 client.login(auth.token);

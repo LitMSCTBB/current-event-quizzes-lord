@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "current-event-quizzes-lord",
+  "private_key_id": "4fede423f48d882333136a6f8ed99470e58efb8d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDtsRBqGLsL3OwY\n3nnA3EwzUSUgS5ftrzHj/7cVRu3Z91ujl+isnZXrVyDuf+XSPJSq+7b6Z8/neoji\n6o+GkY6NEgW1GsgECRI2VgnvDG+H6rpxT3RitCaKltizkbEHKNlFUao1wKgvwDK3\nkZrMg0kdcMLuq3MDGNUMfZ0Saylpr8n5cQCv/YQiHBtw0mIqspvJQ4CFcliCbCjA\nbmPBNcdueTRwCh8gurqzrS/W6Q0tRHZla6UilxpwA2vMM3T0eiGKs5ZbFTrOBi41\nrq4THslcFlHgHoDeShZw+4nD2xtBoXZkKOJwmzo/1HalSD8y5rSn2DdtSA0H89Vn\nTiHrqeVTAgMBAAECggEAEbu/n0LIFbr+TF6w08A72SpJLE8nfx6uiLWn2akIjtYD\nGsH3JIW/TScbeF/HbDeD2fvcq3L6UmlUdCWO3rnWWlUJYvkkChUJLE+f/xs86PWM\nwm5snv6Uz4swkLkibYfRKfhNTCRbB/D9d6+fznlPB6jFilv1QTpljsCCawDevpkv\nl/uXBNipW/EDKp4cCTpmI/LZOTRxn/xOkTpXq966353hCZi9w3+0lnQPPuFCsppA\nA1ZiqNOPzm+Sea3oG+eWhCIfuh+sD9z9NRSv7AUO+2hb07CVW0dk5uR4onzHT+Nc\nMvEdNnaacIGXZQen5BGCBlLhfX3nDEqllT+qrIOE/QKBgQD3+3o8Tr0QaSc36J/d\n6e+GT2C005n4F8oeFq34I2hdHZ1SXEyMbqc1ZIAgKj00Z/WolEsEiUPFShOMob7e\nFmDK+PjiwLIP2UjHawFx/wwSrA9mvBvMUW7R5OyjLyvBcoWvO7mvzCIJXA/erNeh\nfeZutGQEHCJ07Jz4JfrEnhu/bQKBgQD1YGlt1kKqnQ6XKZLYelUCjpf+m/OBqr9v\n+OTkcgl7eIhJdRwwiifUrKAvHjvFuEzBiNqS3sqzJ81SGkiEB2X+OzOuEQH1Br99\n+3PuAM6EtuuaHZNJdgQErsBdF97FShYXuD4u+TJiEs8mFmKxdckBZfAI42LFdswF\nFAYQMpt/vwKBgA4aOA5b7/aR9FACo6zME/oQY5CFBBmOyMjDQ2t8IABDoeHAK/5E\ngK/RolOx8z8atma64DVG1RrQJqJ1xFP+88w3Mng6uyWZlsD4feGMvpQFQu71vaL1\n8pZvLWHuWc+rgpy/icTMmBbuLFzeeXjOnx8mlRWCwBbkKd0W09cAotVVAoGBAKMb\nj3l/r5kSBZzd+csEpnWoq8iHifprsg2QeTaRx1PX72BFBJQPgiKRDXnEsx7fP8Z2\nXjS6/CrTDlzBM+rvsBCq8dOHYrGp5qir+Yf/6Ue3AC3V8w4l8M3cC+rV7zNd6Amk\nY1F+PMuMjT5YKwqjrRXM2R5PaFyydzP4937U5SCpAoGAEGapvsJurIFAbfy7s/UF\nT74kEt9Oc58JOGVbe3scoEFFbrRYEoLHr3osliHaxCFMy09VOGqCKG7+n1lF/Tlb\n7pbD6KLl+VpxmMErxMlzvM1H2gIokacBDYUsSDaszBZ/RzmRUz1haY0iCvokdZSg\n91AU6aWniC4omcyxifGuho4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "leaderboard@current-event-quizzes-lord.iam.gserviceaccount.com",
+  "client_id": "104065394814068788470",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/leaderboard%40current-event-quizzes-lord.iam.gserviceaccount.com"
+}
